@@ -1,0 +1,61 @@
+#!/bin/bash
+
+# Settings to run tests for a specific observaiton type
+
+
+# Absolute path to directory to hold tuning experiments
+dir_expts=$0/all_expts
+dir_dart=$0/link_to_DART
+dir_bash=$0
+dir_init_conditions=$0/gen_init_conditions/init_conditions
+
+
+# Localization half-radii to test
+loc_halfradius_list="0.075"
+halfradius=0.075
+for ii in `seq 1 15`; do
+    halfradius=`perl -e "printf  $halfradius * 1.3"`
+    loc_halfradius_list=$loc_halfradius_list" "$halfradius
+done
+loc_halfradius_list=$loc_halfradius_list" "999.9
+
+
+
+# Number of cycles used for ROI tuning
+n_cycle_tuning=200
+
+# Number of cycles used for full run
+n_cycle_full=5500
+
+# Cycling interval
+cyc_interval_seconds_list="3600 7200 10800 21600 43200" 
+
+# Ensemble size
+ens_size_list="10 20 40 80"
+
+# Number of observations
+nObs_list="40"
+
+# Number of init conditions to play with 
+nTrials=36
+
+# Observation operator power and error variances
+obs_name="SQRT_consolidated"
+obs_type=5
+obs_power="0.5"
+obs_err_var_list="0.25" #"0.125 0.25 0.5" # 1.0 2.0"
+use_pese_list="true false"
+
+filter_type_list=""
+for npese in pese10X pese05X pese20X; do
+    filter_type_list="1_xGauss_yGauss_"$npese" "$filter_type_list
+    filter_type_list="2_xGauss_yGauss_"$npese" "$filter_type_list
+    filter_type_list="8_xGauss_yGauss_"$npese" "$filter_type_list
+    filter_type_list="8_xBNRH_yBNRH_"$npese" "$filter_type_list
+done
+
+
+
+
+# Number of processes 
+tot_nprocs=36

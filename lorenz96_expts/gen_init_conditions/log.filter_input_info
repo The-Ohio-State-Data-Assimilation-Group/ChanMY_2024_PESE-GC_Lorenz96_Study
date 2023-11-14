@@ -1,0 +1,45 @@
+netcdf TEMPLATE_filter_input {
+dimensions:
+	member = 80 ;
+	metadatalength = 32 ;
+	location = 40 ;
+	time = UNLIMITED ; // (1 currently)
+variables:
+	char MemberMetadata(member, metadatalength) ;
+		MemberMetadata:long_name = "description of each member" ;
+	double location(location) ;
+		location:short_name = "loc1d" ;
+		location:long_name = "location on a unit circle" ;
+		location:dimension = 1 ;
+		location:valid_range = 0., 1. ;
+	double state(time, member, location) ;
+		state:long_name = "the ensemble of model states" ;
+	double state_priorinf_mean(time, location) ;
+		state_priorinf_mean:long_name = "prior inflation value" ;
+	double state_priorinf_sd(time, location) ;
+		state_priorinf_sd:long_name = "prior inflation standard deviation" ;
+	double state_postinf_mean(time, location) ;
+		state_postinf_mean:long_name = "posterior inflation value" ;
+	double state_postinf_sd(time, location) ;
+		state_postinf_sd:long_name = "posterior inflation standard deviation" ;
+	double time(time) ;
+		time:long_name = "valid time of the model state" ;
+		time:axis = "T" ;
+		time:cartesian_axis = "T" ;
+		time:calendar = "none" ;
+		time:units = "days" ;
+	double advance_to_time ;
+		advance_to_time:long_name = "desired time at end of the next model advance" ;
+		advance_to_time:axis = "T" ;
+		advance_to_time:cartesian_axis = "T" ;
+		advance_to_time:calendar = "none" ;
+		advance_to_time:units = "days" ;
+
+// global attributes:
+		:title = "an ensemble of spun-up model states" ;
+		:version = "$Id: $" ;
+		:model = "Lorenz_96" ;
+		:model_forcing = 8. ;
+		:model_deltat = 0.05 ;
+		:history = "identical (within 64bit precision) to ASCII filter_ics r1350 (circa June 2005)" ;
+}

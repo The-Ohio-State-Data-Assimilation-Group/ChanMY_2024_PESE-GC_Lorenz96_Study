@@ -1,0 +1,47 @@
+#!/bin/bash
+
+# Settings to run tests for a specific observaiton type
+
+
+# Absolute path to directory to hold tuning experiments
+dir_expts=$0/all_expts
+dir_dart=$0/link_to_DART
+dir_bash=$0
+dir_init_conditions=$0/gen_init_conditions/init_conditions
+
+# Localization half-radii to test
+loc_halfradius_list=SED_HALF_ROI
+
+
+# Number of cycles used for full run
+n_cycle_full=5500
+
+# Cycling interval
+cyc_interval_seconds_list=SED_CYCLING_INTERVAL 
+
+# Ensemble size
+ens_size_list=SED_ENS_SIZE
+
+# Number of observations
+nObs_list=SED_OBS_NUM
+
+# Number of init conditions to play with 
+nTrials=36
+
+# Observation operator power and error variances
+obs_name=SED_OBS_NAME
+obs_type=5
+obs_power=SED_OBS_POWER
+obs_err_var_list=SED_OBS_ERR_VAR 
+use_pese_list="true false"
+filter_type_list=SED_FILTER_TYPE
+
+pese_ens_factor=SED_PESE_FACTOR
+
+model_marginal_dist=SED_MARGINAL_DISTRIBUTION   # Normal distribution is 1, BNRH is 2
+obs_marginal_dist=SED_MARGINAL_DISTRIBUTION     # Normal distribution is 1, BNRH is 2
+
+
+
+# Number of processes 
+tot_nprocs=36

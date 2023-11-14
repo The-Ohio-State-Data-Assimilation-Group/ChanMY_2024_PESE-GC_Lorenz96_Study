@@ -1,0 +1,6 @@
+Performance of      x cdf for      small ensemble:   0.649812 (std err:   0.007526)
+Performance of      x cdf for   expanded ensemble:   0.498219 (std err:   0.007430)
+Performance of      y cdf for      small ensemble:   0.447516 (std err:   0.006229)
+Performance of      y cdf for   expanded ensemble:   0.342514 (std err:   0.005319)
+Performance of   xy curve for      small ensemble:  22.463754 (std err:   0.159751)
+Performance of   xy curve for   expanded ensemble:  16.374281 (std err:   0.028368)
