@@ -19,11 +19,17 @@ Small forecast ensemble sizes (<100) are common in the ensemble data assimilatio
 
 &nbsp; &nbsp;
 
-## Directory list
+## Directory structure
 1) `manuscript_figs_2024` -- Contains Python scripts used to generate demonstrative and conceptual figures in the manuscript (Figs 2-6, and 10).
 2) `lorenz96_expts` -- Contains a) scripts used to run the Lorenz 1996 experiments described in the manuscript, and b) scripts used to evaluate and visualize the performance of EnsDA with PESE-GC.
 3) `DART_w_PESE-GC` -- NCAR Data Assimilation Research Testbed source code with PESE-GC implemented 
 
+
+&nbsp; &nbsp;
+
+
+## Instructions to replicate experiments in manuscript
+See `lorenz96_expts/README.md`
 
 
 &nbsp; &nbsp;
@@ -33,7 +39,3 @@ Small forecast ensemble sizes (<100) are common in the ensemble data assimilatio
 PESE-GC is implemented in `DART_fortran_src/assimilation_code/modules/assimilation/pese_mod.f90`.
 
 Some API-like documentation of PESE-GC is available in `DART_fortran_src/assimilation_code/modules/assimilation/pese_mod.rst`.
-
-
-
-
